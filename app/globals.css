@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-forest: var(--forest);
+  --color-sand: var(--sand);
+  --color-burgundy: var(--burgundy);
+  --color-brass: var(--brass);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --shadow-editorial: 0 24px 70px rgba(48, 44, 36, 0.12);
+  --shadow-tactile: 0 18px 45px rgba(35, 33, 28, 0.14), 0 2px 0 rgba(35, 33, 28, 0.06);
+}
+
+:root {
+  --background: #f8f7f4;
+  --foreground: #25231f;
+  --muted: #716d64;
+  --subtle: #e8e1d6;
+  --border: rgba(37, 35, 31, 0.12);
+  --surface: #fffdf8;
+  --surface-raised: #fdf9f0;
+  --forest: #183b2a;
+  --sand: #d9c7aa;
+  --burgundy: #6f2831;
+  --brass: #a97a36;
+  --font-sans: Inter, Avenir Next, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+.dark {
+  --background: #151410;
+  --foreground: #ede8de;
+  --muted: #b7afa2;
+  --subtle: #2b2821;
+  --border: rgba(237, 232, 222, 0.14);
+  --surface: #1d1b16;
+  --surface-raised: #242119;
+  --forest: #8cb49a;
+  --sand: #806e53;
+  --burgundy: #d2a2a7;
+  --brass: #c69b5b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent 26rem),
+    radial-gradient(circle at 50% -10%, rgba(217, 199, 170, 0.42), transparent 32rem),
+    var(--background);
+  font-family: var(--font-sans);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  color: var(--background);
+  background: var(--forest);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.editorial-serif {
+  font-family: var(--font-serif);
+}
+
+.hairline {
+  border-color: var(--border);
+}
+
+.publication-shell {
+  position: relative;
+}
+
+.publication-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(37, 35, 31, 0.035) 1px, transparent 1px);
+  background-size: 100% 64px;
+  mask-image: linear-gradient(180deg, black, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
